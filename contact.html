@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOVA — Contact</title>
+<meta name="description" content="Contact the NOVA team: support, privacy and data requests, billing, feedback.">
+<meta name="theme-color" content="#07080C">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="wrap nav"><a class="brand" href="./"><img src="icon.svg" alt="" width="28" height="28"> NOVA</a></header>
+<main class="wrap doc">
+<h1>Contact us</h1>
+<p>Questions, support, privacy or data-deletion requests, billing or feedback — send us a message and we'll get back to you.</p>
+
+<form id="contact-form" class="form" novalidate>
+  <label for="c-name">Name</label>
+  <input id="c-name" name="name" type="text" maxlength="80" autocomplete="name" required>
+
+  <label for="c-email">Email <span class="fine">(optional — only if you'd like a reply)</span></label>
+  <input id="c-email" name="email" type="email" maxlength="254" autocomplete="email">
+
+  <label for="c-topic">Topic</label>
+  <select id="c-topic" name="topic">
+    <option value="support">Support</option>
+    <option value="privacy">Privacy / data request</option>
+    <option value="billing">Billing &amp; subscriptions</option>
+    <option value="feedback">Feedback</option>
+    <option value="press">Press</option>
+    <option value="general">Other</option>
+  </select>
+
+  <label for="c-message">Message</label>
+  <textarea id="c-message" name="message" rows="6" minlength="10" maxlength="3000" required></textarea>
+
+  <!-- Honeypot: hidden from people, bots fill it in. -->
+  <div class="hp" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+  <p class="fine">By sending, you agree that your message is processed to answer you, as described in our <a href="privacy.html">Privacy Policy</a>. Please don't include passwords or payment details.</p>
+  <button class="btn" type="submit" id="c-submit">Send message</button>
+  <p id="c-status" class="status" role="status" aria-live="polite"></p>
+</form>
+</main>
+<footer class="wrap foot"><p><a href="./">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p></footer>
+<script src="config.js"></script>
+<script src="contact.js"></script>
+</body>
+</html>
