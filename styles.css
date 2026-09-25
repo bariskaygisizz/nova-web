@@ -46,3 +46,5 @@ h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.01em;margin:64px 0 8px}
 .form .btn:disabled{opacity:.5;cursor:default}
 .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .status{min-height:1.4em;font-size:14px}.status.ok{color:var(--mint)}.status.error{color:var(--amber)}
+.challenge{max-width:1040px;margin:12px auto 0;padding:14px 20px;border:1px solid rgba(251,191,107,.45);background:rgba(251,191,107,.08);border-radius:16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--text)}
+.challenge .btn.small{color:var(--bg)!important}
