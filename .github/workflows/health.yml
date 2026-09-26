@@ -1,7 +1,7 @@
 name: Health check
 
 # Pings the NOVA backend and this website (runs here because public-repo Actions minutes are free).
-# so outages are noticed without watching dashboards.
+# A failed run makes GitHub email the repo owner, so outages are noticed without watching dashboards.
 on:
   schedule:
     - cron: "17 */6 * * *" # every 6 hours
