@@ -25,7 +25,7 @@
   <li><strong>AI requests.</strong> The prompt text you submit and a random installation identifier (for rate limiting). Requests are not linked to your name or email. Our server does not log request contents.</li>
   <li><strong>Purchases.</strong> Subscriptions are processed by Apple, Samsung, Google or Stripe and managed through RevenueCat, which receives an anonymous app user ID and purchase receipts to confirm your NOVA Pro status.</li>
   <li><strong>Notifications (optional).</strong> If you opt in, OneSignal receives a push token and coarse engagement tags (for example “completed today's priority: yes/no”, streak length, chosen focus area). No task text or personal content is sent.</li>
-  <li><strong>Product analytics & attribution.</strong> Event names such as “task_completed” or “paywall_view” with non-personal properties (counts, feature names) may be sent to Layers to measure which features and campaigns help people. No free-text content is included.</li>
+  <li><strong>Product analytics & attribution.</strong> Event names such as “task_completed” or “paywall_view” with non-personal properties (counts, feature names) may be sent to Layers (attribution) and PostHog (product analytics, EU region) to measure which features and campaigns help people. No free-text content, no session recordings.</li>
   <li><strong>Ads (Android, optional).</strong> NOVA QUEST can show an optional rewarded ad served by Google AdMob; RevenueCat records ad impressions and revenue. Google may use the advertising ID as described in its policies. Ads are never required to use NOVA.</li>
 </ul>
 
@@ -35,7 +35,7 @@ It is delivered to the developer by email (via Resend) and as phone notification
 Don't include passwords or payment details.</p>
 
 <h2>Service providers</h2>
-<p>RevenueCat (subscriptions), OneSignal (push notifications), Layers (analytics &amp; attribution), Google AdMob (optional rewarded ads, Android), OpenRouter and the AI model provider it routes to (text generation), Resend, ntfy and CallMeBot (contact-form delivery), and our hosting providers (GitHub Pages for this website). Each processes data only to provide its service to NOVA.</p>
+<p>RevenueCat (subscriptions), OneSignal (push notifications), Layers (analytics &amp; attribution), PostHog (product analytics), Google AdMob (optional rewarded ads, Android), OpenRouter and the AI model provider it routes to (text generation), Resend, ntfy and CallMeBot (contact-form delivery), and our hosting providers (GitHub Pages for this website). Each processes data only to provide its service to NOVA.</p>
 
 <h2>Your choices</h2>
 <ul>
