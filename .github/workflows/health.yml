@@ -1,0 +1,45 @@
+name: Health check
+
+# Pings the NOVA backend and this website (runs here because public-repo Actions minutes are free).
+# so outages are noticed without watching dashboards.
+on:
+  schedule:
+    - cron: "17 */6 * * *" # every 6 hours
+  workflow_dispatch:
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      BACKEND: https://nova-backend-pink.vercel.app
+      WEB: https://bariskaygisizz.github.io/nova-web
+    steps:
+      - name: Backend /health
+        run: |
+          body=$(curl -fsS --retry 2 --max-time 20 "$BACKEND/health")
+          echo "$body"
+          echo "$body" | jq -e '.ok == true' > /dev/null
+          if ! echo "$body" | jq -e '.ai == true' > /dev/null; then
+            echo "::warning::Live AI is not configured on the backend — the app answers with on-device suggestions only."
+          fi
+          case "$(echo "$body" | jq -r '.aiLastCall.status // "unknown"')" in
+            needs_card) echo "::warning::Vercel AI Gateway needs a card on file (or set GROQ_API_KEY) — live AI is not answering." ;;
+            failing) echo "::error::The last live AI call failed on every model."; exit 1 ;;
+          esac
+          if ! echo "$body" | jq -e '.contact.email or .contact.whatsapp or .contact.ntfy' > /dev/null; then
+            echo "::error::No contact channel is configured — contact form messages would be lost."
+            exit 1
+          fi
+      - name: AI endpoint rejects bad input (server alive, validation on)
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 -X POST "$BACKEND/v1/ai/complete" -H 'Content-Type: application/json' -d '{}')
+          echo "HTTP $code"
+          test "$code" = "400" -o "$code" = "503"
+      - name: Website pages
+        run: |
+          for page in "" privacy.html terms.html contact.html config.js; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$WEB/$page")
+            echo "$code  /$page"
+            test "$code" = "200"
+          done
