@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOVA — Delete your NOVA ID</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="wrap nav"><a class="brand" href="./"><img src="icon.svg" alt="" width="28" height="28"> NOVA</a></header>
+<main class="wrap doc">
+<h1>Delete your NOVA ID</h1>
+
+<h2>In the app (recommended)</h2>
+<p>Open NOVA → <em>Profile</em> → <em>NOVA ID</em> → <strong>Delete NOVA ID</strong>. This signs out every device and immediately deletes your NOVA ID, its device list, security log, recovery code record and encrypted backup from our server.</p>
+<p>Data kept only on your phone (tasks, Vault, games and settings) is removed with <em>Profile</em> → <strong>Delete my data</strong>, or by uninstalling NOVA.</p>
+
+<h2>Without the app (lost or reset phone)</h2>
+<p>Enter the recovery code from your NOVA recovery kit. Your code never leaves this page: your browser turns it into a one-way value, which is all our server receives.</p>
+<form id="delete-form" class="form" autocomplete="off">
+  <label for="code">Recovery code</label>
+  <input id="code" name="code" type="text" inputmode="text" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX" required>
+  <label><input type="checkbox" name="confirm" style="width:auto;min-height:0;margin-right:8px"> I understand this permanently deletes my NOVA ID and its encrypted backup.</label>
+  <button class="btn" type="submit">Delete my NOVA ID</button>
+  <p id="delete-status" class="status" role="status" aria-live="polite"></p>
+</form>
+
+<h2>What is deleted, and what isn't</h2>
+<ul>
+  <li><strong>Deleted immediately:</strong> your NOVA ID, all device public keys, device names and activity times, the security log, the recovery-code record and your encrypted backup.</li>
+  <li><strong>Kept for 30 days:</strong> an anonymous deletion record (date and platform only — no NOVA ID, no device) to investigate abuse. It is then removed automatically.</li>
+  <li><strong>Not affected:</strong> subscriptions are managed by your app store — cancel them there. Anonymous purchase records held by RevenueCat can be deleted on request via our <a href="contact.html?topic=privacy">contact form</a>.</li>
+</ul>
+<p>Without your devices or your recovery code we can't tell which NOVA ID is yours — there is no email or password on file — so we can't delete it for you. Backups are end-to-end encrypted, so nobody, including us, can read them.</p>
+<p>See also our <a href="privacy.html">privacy policy</a>.</p>
+</main>
+<script src="config.js"></script>
+<script src="delete-account.js"></script>
+</body>
+</html>

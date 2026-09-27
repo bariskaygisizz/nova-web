@@ -8,4 +8,6 @@ window.NOVA_CONFIG = {
   // NOVA backend contact endpoint, e.g. "https://nova-backend.onrender.com/v1/contact".
   // The owner's email/phone are NOT here — they live only in the backend's environment variables.
   CONTACT_ENDPOINT: "https://nova-backend-pink.vercel.app/v1/contact",
+  // Deletes a NOVA ID with its recovery code (the code itself never leaves the browser).
+  IDENTITY_DELETE_ENDPOINT: "https://nova-backend-pink.vercel.app/v1/id/delete-with-recovery",
 };
