@@ -19,6 +19,7 @@
   <li>We never ask for permission to access your contacts, location, photo library or camera. NOVA asks for the <strong>microphone</strong> only when you tap the microphone to talk to NOVA, and listens only while the voice orb is on screen.</li>
   <li>If you choose to add a photo or file to the Smart Vault (or share one to NOVA from another app), the system picker gives NOVA only that item. It is copied into NOVA's private storage <strong>on your device</strong> and is never uploaded.</li>
   <li>A custom app background (NOVA Pro) — a photo or video you pick, or one taken from a website link you paste — is saved <strong>on your device</strong> only.</li>
+  <li><strong>NOVA ID</strong> (optional) has no email, password or social login. Your device key stays in your phone's secure hardware; our server stores only its public key, your devices and an <strong>end-to-end encrypted</strong> backup that only your recovery code can open.</li>
   <li>You can delete all on-device NOVA data at any time: <em>Profile → Delete my data</em>.</li>
 </ul>
 
@@ -28,6 +29,7 @@
   <li><strong>Voice (optional).</strong> When you talk to NOVA, your speech is turned into text by your device's built-in speech service (on Android usually Google's, on iPhone Apple's), which may process the audio on its servers under its own privacy policy. NOVA receives only the text, never stores recordings, and treats that text like a typed message. Replies read aloud use your device's text-to-speech engine.</li>
   <li><strong>Translations.</strong> Text you ask NOVA Translate to translate is sent to our server and an AI provider in the same way as an AI request.</li>
   <li><strong>Background from a link (optional).</strong> If you paste a website link to use as your background, your device downloads that page and its preview image or video directly from that website; the website sees a normal request from your device.</li>
+  <li><strong>NOVA ID (optional).</strong> If you create one, we store: a random NOVA ID (e.g. NOVA-7K2MQ-9XD4R), each device's public key, device name and platform (e.g. “Galaxy S23 · Android 14”), when devices were added and last active, a security log of the last 50 events (such as “device added” or “recovery code used”), a one-way hash of a value derived from your recovery code, and your backup <em>ciphertext</em>. Your backup is encrypted on your phone with a key derived from your recovery code, which never leaves your devices, so we cannot read it. We never receive passwords, private keys or your recovery code, and signing requests are single-use. <em>Profile → NOVA ID → Delete NOVA ID</em> deletes all of this immediately; we keep only an anonymous deletion record (date and platform, no ID) for 30 days to investigate abuse.</li>
   <li><strong>Purchases.</strong> Subscriptions are processed by Apple, Samsung, Google or Stripe and managed through RevenueCat, which receives an anonymous app user ID and purchase receipts to confirm your NOVA Pro status.</li>
   <li><strong>Notifications (optional).</strong> If you opt in, OneSignal receives a push token and coarse engagement tags (for example “completed today's priority: yes/no”, streak length, chosen focus area). No task text or personal content is sent.</li>
   <li><strong>Product analytics & attribution.</strong> Event names such as “task_completed” or “paywall_view” with non-personal properties (counts, feature names) may be sent to Layers (attribution) and PostHog (product analytics, EU region) to measure which features and campaigns help people. No free-text content, no session recordings.</li>
@@ -40,7 +42,7 @@ It is delivered to the developer by email (via Resend) and as phone notification
 Don't include passwords or payment details.</p>
 
 <h2>Service providers</h2>
-<p>RevenueCat (subscriptions), OneSignal (push notifications), Layers (analytics &amp; attribution), PostHog (product analytics), Google AdMob (optional rewarded ads, Android), AI text generation through OpenRouter, Vercel AI Gateway or Groq and the model providers they route to (for example Google, OpenAI, Meta, NVIDIA), Resend, ntfy and CallMeBot (contact-form delivery), and our hosting providers (Vercel for our server, GitHub Pages for this website). Each processes data only to provide its service to NOVA.</p>
+<p>RevenueCat (subscriptions), OneSignal (push notifications), Layers (analytics &amp; attribution), PostHog (product analytics), Google AdMob (optional rewarded ads, Android), AI text generation through OpenRouter, Vercel AI Gateway or Groq and the model providers they route to (for example Google, OpenAI, Meta, NVIDIA), Resend, ntfy and CallMeBot (contact-form delivery), Upstash (NOVA ID database, encrypted backups), and our hosting providers (Vercel for our server, GitHub Pages for this website). Each processes data only to provide its service to NOVA.</p>
 
 <h2>Your choices</h2>
 <ul>
